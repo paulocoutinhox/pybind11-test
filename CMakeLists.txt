@@ -7,10 +7,6 @@ set(CMAKE_CXX_STANDARD 11)
 
 project(${PROJECT_NAME} CXX)
 
-if(UNIX AND NOT APPLE)
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
-endif()
-
 set(S_FILES_PROJ "src/cpp/main.cpp")
 
 set(
@@ -33,7 +29,9 @@ set(
 )
 
 add_subdirectory(pybind11 REQUIRED)
+find_package(Threads)
 
 add_executable(${PROJECT_NAME} ${PROJECT_SOURCE_FILES})
 
 target_link_libraries(${PROJECT_NAME} PRIVATE pybind11::embed)
+target_link_libraries(${PROJECT_NAME} PRIVATE Threads::Threads)

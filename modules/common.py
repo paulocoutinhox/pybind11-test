@@ -1,6 +1,7 @@
 import os
 import subprocess
 from subprocess import check_call
+import platform
 
 import modules.config as c
 import modules.functions as f
@@ -35,11 +36,14 @@ def run_task_build():
 
 
 def run_task_test():
+    is_windows = any(platform.win32_ver())
+    extension = ".exe" if is_windows else ""
+
     build_dir = os.path.join("src", "python")
 
     # run
     cwd = build_dir
-    command = " ".join(["./../../build/pybind11_test"])
+    command = " ".join(["./../../build/pybind11_test{0}".format(extension)])
     check_call(command, cwd=cwd, shell=True)
 
 
