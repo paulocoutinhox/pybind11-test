@@ -38,7 +38,11 @@ def run_task_build():
 def run_task_test():
     is_windows = any(platform.win32_ver())
     build_dir = os.path.join("src", "python")
-    program = os.path.abspath("build/pybind11_test")
+
+    if is_windows:
+        program = os.path.abspath("build/pybind11_test.exe")
+    else:
+        program = os.path.abspath("build/pybind11_test")
 
     # run
     cwd = build_dir
