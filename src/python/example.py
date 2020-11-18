@@ -1,7 +1,7 @@
 import functions as f
 import os
 
-temp_dir =  os.path.join(os.pardir, os.pardir, "temp")
+temp_dir = os.path.join(os.pardir, os.pardir, "temp")
 
 f.debug("Creating temp dir...")
 f.remove_dir(temp_dir)
