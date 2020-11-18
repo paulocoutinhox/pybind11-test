@@ -1,6 +1,5 @@
 import glob
 import os
-import pwd
 import shutil
 import stat
 import sys
@@ -188,11 +187,6 @@ def find_files(directory, pattern):
     ]
 
     return files
-
-
-def is_test_user():
-    user = pwd.getpwuid(os.getuid())[0]
-    return user == "paulo"
 
 
 def file_has_content(file, content):
