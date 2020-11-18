@@ -37,13 +37,16 @@ def run_task_build():
 
 def run_task_test():
     is_windows = any(platform.win32_ver())
-    extension = ".exe" if is_windows else ""
-
     build_dir = os.path.join("src", "python")
 
     # run
     cwd = build_dir
-    command = " ".join(["./../../build/pybind11_test{0}".format(extension)])
+
+    if is_windows:
+        command = " ".join(["../../build/pybind11_test.exe"])
+    else:
+        command = " ".join(["./../../build/pybind11_test"])
+
     check_call(command, cwd=cwd, shell=True)
 
 
