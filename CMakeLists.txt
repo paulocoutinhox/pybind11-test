@@ -28,14 +28,20 @@ set(
   CACHE INTERNAL ""
 )
 
+add_subdirectory(pybind11 REQUIRED)
+
 add_executable(${PROJECT_NAME} ${PROJECT_SOURCE_FILES})
 
-target_link_directories(${PROJECT_NAME} PUBLIC "python")
-target_link_directories(${PROJECT_NAME} PUBLIC "/usr/local/lib/")
+target_link_libraries(${PROJECT_NAME} PRIVATE pybind11::embed)
 
-target_link_libraries(${PROJECT_NAME} "python${PYTHON_VERSION}")
-target_link_libraries(${PROJECT_NAME} "intl")
 
-include_directories("pybind11/include")
-include_directories("python")
-include_directories("python/Include")
+# target_link_directories(${PROJECT_NAME} PUBLIC "python")
+# target_link_directories(${PROJECT_NAME} PUBLIC "/usr/local/lib/")
+
+# target_link_libraries(${PROJECT_NAME} "python${PYTHON_VERSION}")
+# target_link_libraries(${PROJECT_NAME} "intl")
+
+# include_directories("pybind11/include")
+# include_directories("python")
+# include_directories("python/Include")
+

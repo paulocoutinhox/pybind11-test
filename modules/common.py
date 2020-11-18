@@ -35,11 +35,11 @@ def run_task_build():
 
 
 def run_task_test():
-    build_dir = os.path.join("build")
+    build_dir = os.path.join("src", "python")
 
     # run
     cwd = build_dir
-    command = " ".join(["./pybind11_test"])
+    command = " ".join(["./../../build/pybind11_test"])
     check_call(command, cwd=cwd, shell=True)
 
 
