@@ -3,7 +3,6 @@ Thumbs.db
 .vscode
 build/
 pybind11/
-python/
 __pycache__/
 *.pyc
 temp/

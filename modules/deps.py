@@ -29,8 +29,8 @@ def run_task_pybind11():
 
 
 def run_task_python():
-    f.remove_dir("python")
-    f.create_dir("python")
+    f.remove_dir("python3")
+    f.create_dir("python3")
 
     # clone
     cwd = None
@@ -41,13 +41,13 @@ def run_task_python():
             "--branch",
             c.python_version,
             "https://github.com/python/cpython.git",
-            "python",
+            "python3",
         ]
     )
     check_call(command, cwd=cwd, shell=True)
 
     # configure
-    cwd = os.path.join("python")
+    cwd = os.path.join("python3")
     command = " ".join(
         [
             "./configure",
@@ -57,7 +57,7 @@ def run_task_python():
     check_call(command, cwd=cwd, shell=True)
 
     # build
-    cwd = os.path.join("python")
+    cwd = os.path.join("python3")
     command = " ".join(
         [
             "make",
