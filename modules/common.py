@@ -40,7 +40,7 @@ def run_task_test():
     build_dir = os.path.join("src", "python")
 
     if is_windows:
-        program = os.path.abspath("build/pybind11_test.exe")
+        program = os.path.abspath("build/Debug/pybind11_test.exe")
     else:
         program = os.path.abspath("build/pybind11_test")
 
