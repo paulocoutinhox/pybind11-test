@@ -43,7 +43,7 @@ def run_task_test():
     cwd = build_dir
 
     if is_windows:
-        command = " ".join(["../../build/pybind11_test.exe"])
+        command = " ".join(["..\\..\\build\\pybind11_test.exe"])
     else:
         command = " ".join(["./../../build/pybind11_test"])
 
