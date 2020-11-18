@@ -31,9 +31,6 @@ jobs:
         run: |
           pip install -r requirements.txt
 
-      - name: "Dependency: python"
-        run: python make.py run dep-python
-
       - name: "Dependency: pybind11"
         run: python make.py run dep-pybind11
 
